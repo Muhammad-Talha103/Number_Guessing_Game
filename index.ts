@@ -37,3 +37,4 @@ async function again() {
     while(startagain.restart === "Y" ||startagain.restart === "y" ||startagain.restart === "yes" ||startagain.restart === "Yes")
 }
 
+restart()
