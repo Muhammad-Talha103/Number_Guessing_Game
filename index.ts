@@ -23,7 +23,11 @@ if(answer.userguess === systemGeneratedNumber ){
     
     
 }
+console.log("Your Guess : ",answer.userguess  ," And System Generated Number Is :" ,systemGeneratedNumber);
+
 }
+
+
 
 async function again() {
     do{
@@ -37,4 +41,4 @@ async function again() {
     while(startagain.restart === "Y" ||startagain.restart === "y" ||startagain.restart === "yes" ||startagain.restart === "Yes")
 }
 
-restart()
+again()

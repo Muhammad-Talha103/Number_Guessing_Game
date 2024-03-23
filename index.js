@@ -1,20 +1,31 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
-let systemGeneratedNumber = Math.floor(Math.random() * 10);
-const answer = await inquirer.prompt([
-    {
-        type: "number",
-        name: "userguess",
-        message: "Guess a number between 1 to 10 :"
+async function restart() {
+    let systemGeneratedNumber = Math.floor(Math.random() * 10);
+    const answer = await inquirer.prompt([
+        {
+            type: "number",
+            name: "userguess",
+            message: "Guess a number between 1 to 10 :"
+        }
+    ]);
+    if (answer.userguess === systemGeneratedNumber) {
+        console.log(chalk.green("You Guess A Correct Number \n You Win"));
     }
-]);
-if (answer.userguess === systemGeneratedNumber) {
-    console.log(chalk.green("You Guess A Correct Number \n You Win"));
-}
-else {
-    while (answer.userguess === answer.systemGeneratedNumber) {
+    else {
         console.log(chalk.red("Better Luck Next Time"));
-        console.log(answer);
     }
+    console.log("Your Guess : ", answer.userguess, " And System Generated Number Is :", systemGeneratedNumber);
 }
+async function again() {
+    do {
+        await restart();
+        var startagain = await inquirer.prompt({
+            type: "input",
+            name: "restart",
+            message: "If You Want Continue Press Y Or If You Want to Exit Press N :"
+        });
+    } while (startagain.restart === "Y" || startagain.restart === "y" || startagain.restart === "yes" || startagain.restart === "Yes");
+}
+again();
