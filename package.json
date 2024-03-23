@@ -1,6 +1,6 @@
 {
   "name": "mt6talha_number_guessing_game",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Number Guessing Game",
   "main": "index.js",
   "type": "module",
